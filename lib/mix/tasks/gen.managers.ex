@@ -1,6 +1,7 @@
 defmodule Mix.Tasks.Gen.Managers do
   use Mix.Task
   alias Safira.Accounts
+  import Safira.Helper, only: [random_string: 1]
 
   @domain "seium.org"
 
@@ -45,11 +46,5 @@ defmodule Mix.Tasks.Gen.Managers do
     else
       0
     end
-  end
-
-  defp random_string(length) do
-    :crypto.strong_rand_bytes(length)
-    |> Base.url_encode64
-    |> binary_part(0, length)
   end
 end
